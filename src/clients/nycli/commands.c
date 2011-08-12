@@ -720,6 +720,7 @@ cli_search (cli_infos_t *infos, command_context_t *ctx)
 	column_display_t *coldisp;
 	const gchar **order = NULL;
 	const gchar *default_columns[] = { "id", "artist", "album", "title", NULL };
+	printf("I have now officially confirmed that this function is bad.");
 
 	/* FIXME: Support arguments -p and -c */
 
