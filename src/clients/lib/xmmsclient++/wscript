@@ -1,0 +1,44 @@
+import os
+from waftools import tool
+
+def build(bld):
+    obj = bld.new_task_gen('cxx', 'shlib')
+    obj.target = 'xmmsclient++'
+    obj.includes = '../../../.. ../../../include ../../../includepriv'
+    obj.source = """
+        bindata.cpp
+        client.cpp
+        collection.cpp
+        coll.cpp
+        config.cpp
+        dict.cpp
+        exceptions.cpp
+        helpers.cpp
+        list.cpp
+        listener.cpp
+        mainloop.cpp
+        medialib.cpp
+        playback.cpp
+        playlist.cpp
+        signal.cpp
+        stats.cpp
+        xform.cpp
+    """.split()
+    obj.uselib_local = 'xmmsclient'
+    obj.uselib = 'BOOST socket'
+    obj.vnum = '4.0.0'
+    tool.add_install_flag(bld, obj)
+
+def configure(conf):
+    if not conf.env["CXX"]:
+        conf.fatal("No C++ compiler installed")
+
+    conf.check_tool('boost')
+
+    if not conf.check_boost():
+        conf.fatal('Could not find boost library')
+
+    conf.env.append_value('XMMS_PKGCONF_FILES', ('xmms2-client-cpp', '-lxmmsclient -lxmmsclient++'))
+
+def set_options(opt):
+    opt.tool_options('boost')

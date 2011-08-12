@@ -1,0 +1,401 @@
+##
+## This should be a somewhat complete list of people that have
+## contributed to the XMMS2 project. The format is copied from the
+## CREDITS-file in the Linux kernel source tree. The fields are: name
+## (N), email (E), web-address (W), PGP key ID and fingerprint (P),
+## description (D).
+##
+## This list is sorted alphabetically.
+##
+
+N: Peter Alm
+E: peter@xmms.org
+D: Initial design and code. XMMS1 :)
+
+N: David Anderson
+E: dave@natulte.net
+D: WAF migration
+
+N: Todd Bayley
+E: toddbayley@gmail.com
+D: Ruby binding fixes.
+
+N: Kristian Benoit
+E: softchill@blacky.sympatico.ca
+D: Various fixes.
+
+N: Jonas Berlin
+E: xkr47@outerspace.dyndns.org
+W: http://xkr47.outerspace.dyndns.org/
+D: curl_http updated to xforms, icymetaint plugin (extracted from curl)
+
+N: Magnus Bjernstad
+E: bjernstad@gmail.com
+D: PythonAPI fixes.
+
+N: Raphaël Bois
+E: vdust@free.fr
+D: Bindata bugfix.
+
+N: Romain Boissat
+E: r.boissat@gmail.com
+D: nycli documentation fix.
+
+N: Alexander Botero-Lowry
+E: alex.boterolowry@gmail.com
+D: *BSD support. Manpages. Various fixes.
+
+N: Nicolas Botti
+E: r2d@musepack.net
+D: Updates to the musepack plugin to support new APIs.
+
+N: Sébastien Cevey
+E: seb@cine7.net
+W: http://sirius.cine7.net/
+P: 1024D/AEE9D6B9 B1C7 08AB D8B8 54C6 4002  CD67 92B4 3BB6 AEE9 D6B9
+D: Collections. Various fixes.
+
+N: Daniel Chokola
+E: dan.chokola@gmail.com
+P: 2048R/EF06AA43 2A8A BAB9 B80F C170 BA16  4738 3470 9525 EF06 AA43
+D: Ruby. Various fixes.
+
+N: Sadrul Habib Chowdhury
+E: imadil@gmail.com
+D: Minor Fixes.
+
+N: Sham Chukoury
+E: eleusis@xmms.org
+W: http://eleusis.f2o.org/
+D: Truckloads of documentation. Various fixes.
+
+N: Hugh Davenport
+E: hugh@davenport.ath.cx
+D: Alsa plugin fix.
+
+N: Dismantled / Gary Zon
+E: core@dismantled.com
+D: Supplied us with a great "intro" clip:
+D: Taken from the "Breed To Death" EP. Dismantled appears courtesy of
+D: Metropolis Records in the US and Dependent Records in Europe.
+
+N: Franz Endstrasser
+E: franz.endstrasser@gmail.com
+D: Java bindings
+
+N: Thomas Frauendorfer
+E: Thomas.Frauendorfer@googlemail.com
+P: 1024D/50817EB1 A1A5 77A8 54C3 0B8D 8A4C  749A C49E 18C3 5081 7EB1
+D: Various small fixes
+
+N: Manuel Fuhr
+E: zod@knid.net
+D: lastfm
+
+N: G. Gallino
+E: ggallino@gmail.com
+D: Equaliser fixes
+
+N: Anthony Garcia
+E: anthony@agg.homelinux.net
+P: 1024D/076F9E89 9467 6082 8A35 2E1E 2D6B  76C4 5E9A ED56 076F 9E89
+D: Compatibility fix to avcodec plugin, flv, various nycli contributions,
+D: various fixes, log timestamps.
+
+N: Paul Giblock
+E: drfaygo@gmail.com
+D: additional id3-tags
+
+N: Dries Harnie
+E: dries@harnie.be
+D: Status aware CLI
+
+N: Johannes Heimansberg
+E: wejpilot@gmail.com
+D: Fix remove command in cli.
+
+N: Jonathan Horowitz
+E: jhorowitz@cs.uri.edu
+D: GME plugin improvements.
+
+N: Sin-Da Hsiea
+E: ibmibmibm.tw@gmail.com
+D: Bugfix
+
+N: Olle Hällnäs
+E: olle@xmms.org
+D: Better seeking in cli.
+
+N: Armando Jagucki
+E: ajagucki@gmail.com
+D: Python bindings improvements
+
+N: Thomas Jollans
+E: thomas@jollans.com
+D: Python bindings improvements
+
+N: Johannes Jordan
+E: ypnos@lanrules.de
+D: Visualization
+
+N: Daniel Kamiński
+E: maniel.rulez@gmail.com
+D: mlib remove command in cli, Ruby fixes.
+
+N: Kyle Kramer
+E: kylegkramer@gmail.com
+D: sc68 xform
+
+N: Karsten Krispin
+E: karsten@krispin.de
+D: Multiple socket support
+
+N: Alan LaMielle
+E: alan.lamielle@gmail.com
+D: 'playlist active' command in cli client.
+
+N: Tuure Laurinolli
+E: tuure@laurinolli.net
+D: Windows portability.
+
+N: Jonne Lehtinen
+E: jonne.lehtinen@tut.fi
+D: C++ bindings
+
+N: Bernhard Leiner
+E: bleiner@gmail.com
+D: Sun output updates.
+
+N: Michael Lindgren
+E: lindgren@debian.as
+D: Curl. HTML pls plugin. Various fixes.
+
+N: David Mason
+E: djmason@gmail.com
+D: Wavpack plugin fixes/tagging
+
+N: Erik Massop
+E: e.massop@hccnet.nl
+D: "jumplist", cli coll queryadd, bugfixes
+
+N: Łukasz Michalik
+E: lmi@ift.uni.wroc.pl
+D: Bugfixes.
+
+N: Mind.In.A.Box / Stefan Poiss and Markus Hadwiger
+W: http://www.mindinabox.com/
+D: Supplied us with a great "intro" clip.
+D: Lament for Lost Dreams clip by mind.in.a.box
+D: Copyright (c) by Stefan Poiss and Markus Hadwiger
+
+N: Dave Moore
+E: wrex006@gmail.com
+D: missing method in C++ bindings.
+
+N: Chris Morgan
+E: cmorgan@alum.wpi.edu
+D: Jack output plugin.
+
+N: Adam Nielsen
+E: a.nielsen@shikadi.net
+D: ModPlug configuration.
+
+N: Thomas Nilsson
+E: thomas@xmms.org
+D: Bugfixes. XMMS1 expertise.
+
+N: Sebastian Noack
+E: sebastian.noack@gmail.com
+P: 1024D/89789A18 5872 C79A D65E 3417 B365  C39B 85E7 F6EC 8978 9A18
+D: Bugfixes.
+
+N: Vegard Nossum
+E: vegard@peltkore.net
+D: IPv6 support. Various fixes.
+
+N: Tobias Nygren
+E: tnn@nygren.pp.se
+D: HP-UX portability
+
+N: Thomas Orgis
+E: thomas@orgis.org
+D: mpg123 plugin.
+
+N: Heikki Orsila
+E: heikki.orsila@iki.fi
+D: Cleanups.
+
+N: Mohsin Patel
+E: mohsin.patel@gmail.com
+D: airplay output plugin (Summer of code 2006)
+
+N: Lucas Adam M Paul
+E: reilithion@gmail.com
+D: GME plugin
+
+N: Daniel Pearson
+E: daniel@nanoo.org
+D: Python XMMSSync-proxy. PythonAPI fixes.
+
+N: Algardas Pelakauskas
+E: algardas@gmail.com
+D: Ruby radd binding
+
+N: Jan Pobrislo
+E: ccx@webprojekty.cz
+D: Optional ldconfig in buildsystem
+
+N: Andrew G Potter
+E: agpotter@ucdavis.edu
+D: Medialib handling bugfix
+
+N: Robin Lee Powell
+E: rlpowell@chain.digitalkingdom.org
+D: New medialib/collection helper commands.
+
+N: Florian Ragwitz
+E: rafl@debian.org
+W: http://perldition.org/
+P: 1024D/8E635A5E E8DC 91A1 B7BE E5AB C172  47EE 742F 2A42 8E63 5A5E
+D: Official Debian packages. Bugfixes. Perl bindings.
+
+N: Igor Assis
+E: igor.assis@gmail.com
+D: nycli (Summer of Code 2008)
+
+N: Ugo Riboni
+E: nerochiaro@neuros.us
+W: http://nerochiaro.net
+D: Neuros OSD support and related fixes.
+
+N: Alexander Rigbo
+E: alex@rigbo.se
+D: Various fixes. Sorting on integers.
+
+N: Christopher Rosell
+E: chrippa@evangelion.se
+D: FreeBSD support in cdae plugin.
+
+N: Andrew Ruder
+E: andy@aeruder.net
+W: http://www.aeruder.net
+D: Various fixes
+
+N: Tobias Rundström
+E: tru@xmms.org
+E: tobias.rundstrom@purplescout.se
+W: http://tobi.nu/
+P: 1024D/9B1FA0CB 527E C4EC D205 88ED FC07  B744 315F F685 9B1F A0CB
+D: Stuff all over the map. Release manager.
+
+N: Martin Salzer
+E: stoky@gmx.net
+D: sorting fix
+
+N: Tilman Sauerbeck
+E: tilman@code-monkey.de
+E: tilman@xmms.org
+W: http://code-monkey.de/
+P: 4096R/B4517D88 ED65 2BA4 602E 90B1 3EEE  A87D 53CD DC31 B451 7D88
+D: Ruby bindings. Many other things all over the place.
+
+N: Dean Scarff
+E: dos@scarff.id.au
+D: Mac OS X fixes
+
+N: Georg Schild
+E: dangertools@gmail.com
+D: Java bindings
+
+N: Auke Schrijnen
+E: auke@schrijnen.nl
+D: Windows diskwrite and Win2k fixes
+
+N: Tim Schumacher
+E: tim@we-are-teh-b.org
+D: Windows CLI terminal width fix
+
+N: Javeed Shaikh
+E: syscrash2k@gmail.com
+W: http://syscrash.ca
+D: Volume normalization plugin
+
+N: Ben Slote
+E: bslote@gmail.com
+D: Pythonbindings fix
+
+N: Daniel Svensson
+E: dsvensson@gmail.com
+E: daniel@nittionio.nu
+E: daniel.svensson@purplescout.se
+W: http://dsvensson.wordpress.com
+P: 1024D/633F5931 9D2D 8156 23A2 8305 95A2 4D71 7BF0 2E28 633F 5931
+D: Musepack. CoreFoundation. Alsa. Gnomevfs. Samba. Sun. Various fixes.
+
+N: Jens Taprogge
+E: jlt_xmms2@shamrock.dyndns.org
+D: Debian packages. Various fixes.
+
+N: Cole Thompson
+E: cole.thompson@gmail.com
+D: DAAP xform.
+
+N: Bryan Taylor
+E: bryan.a.taylor@gmail.com
+D: Various fixes
+
+N: Sergei Trofimovich
+E: slyich@gmail.com
+E: slyfox@inbox.ru
+D: Various Cleanups
+
+N: Rémi Vanicat
+E: remi.vanicat@gmail.com
+D: SQLite optimizations.
+
+N: Pauli Virtanen
+E: pauli.virtanen@iki.fi
+D: xmmsc_medialib_playlist_list in Python bindings
+
+N: Juho Vähä-Herttua
+E: juhovh@iki.fi
+W: http://juho.vaha-herttua.fi/
+P: 1024D/CB130DCE 1C70 BF1D AEF7 619C C0A6  60E7 563D FCA3 CB13 0DCE
+D: Mp4, faad, asf, avcodec, equalizer, vocoder, ao, karaoke, apefile, tta, etc.
+
+N: Georg Wacker
+E: gpsw@gmx.de
+P: 1024D/22C30FF7 2BEE 0628 1C78 385F 3979  3E91 29C4 A4F1 22C3 0FF7
+D: Ruby documentation fix
+
+N: Anders Waldenborg
+E: andersg@xmms.org
+P: 1024D/5D46D966 4186 4775 154B 9E4F 8CE7  A3F8 E165 5471 5D46 D966
+D: Stuff all over the place. Master bitch.
+
+N: Michael Walle
+E: michael@walle.cc
+D: playlists_list stuff
+
+N: Bert Wesarg
+E: Bert.Wesarg@googlemail.com
+D: Buildsystem fixes
+
+N: Rainer Wittmaack
+E: ningo@gmx.net
+D: sun audio fixes
+
+N: Sebastian Woetzel
+E: wose@zuendmasse.de
+D: Python bindings improvements
+
+N: Deng Xiyue
+E: manphiz@gmail.com
+D: segment plugin.
+
+N: Ma Xuan
+E: supermmx@gmail.com
+D: mac plugin.
+
+# Unless you really are after "Ma Xuan" when sorted alphabetically
+# don't add your name here.

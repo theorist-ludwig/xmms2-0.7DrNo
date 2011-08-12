@@ -1,0 +1,50 @@
+import Configure
+from logging import warning
+import os
+
+def build(bld):
+    obj = bld.new_task_gen('cc', 'shlib', 'pyext')
+    obj.target = 'xmmsapi'
+    obj.includes = '../../../.. ../../../include ../../../includepriv .'
+    obj.source = ['xmmsapi.pyx']
+
+    # the generated c code will throw an estimated 1000 warnings
+    # if we compile with -Wwrite-strings. so don't.
+    obj.uselib = 'NOWRITESTRINGS'
+
+    obj.uselib_local = 'xmmsclient'
+    obj.install_path = "${xmmsclient_PYTHONDIR}"
+    obj.mac_bundle = True
+
+    bld.install_files('${xmmsclient_PYTHONDIR}', 'xmmsclient/__init__.py')
+    bld.install_files('${xmmsclient_PYTHONDIR}', 'xmmsclient/sync.py')
+    bld.install_files('${xmmsclient_PYTHONDIR}', 'xmmsclient/propdict.py')
+    bld.install_files('${xmmsclient_PYTHONDIR}', 'xmmsclient/consts.py')
+    bld.install_files('${xmmsclient_PYTHONDIR}', 'xmmsclient/collections.py')
+    bld.install_files('${xmmsclient_PYTHONDIR}', 'xmmsclient/glib.py')
+    bld.install_files('${xmmsclient_PYTHONDIR}', 'xmmsclient/qt3.py')
+
+def configure(conf):
+    conf.check_tool('python')
+    if not conf.env['PYTHON']:
+        conf.fatal("python not found")
+
+    conf.check_python_version()
+    conf.check_python_headers()
+
+    conf.env['xmmsclient_PYTHONDIR'] = conf.env['PYTHONDIR'] + '/xmmsclient'
+
+    prefix = os.path.commonprefix([conf.env['PYTHONDIR'], conf.env['PREFIX']])
+    if not (isinstance(prefix, basestring) or prefix.startswith(conf.env['PREFIX'])):
+        warning('default python libdir is not under PREFIX. specify path '
+              + 'manually using the PYTHONDIR environment variable if you '
+              + 'don\'t want the python bindings to be installed to '
+              + conf.env['PYTHONDIR'])
+
+    conf.check_tool('pyrexc', tooldir=os.path.abspath('waftools'))
+    if not conf.env['PYREX']:
+        conf.fatal("pyrexc not found")
+
+def set_options(opt):
+    pass
+

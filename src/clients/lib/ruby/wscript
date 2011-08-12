@@ -1,0 +1,71 @@
+import Utils
+import os
+import Options
+from logging import warning
+
+def build(bld):
+    obj = bld.new_task_gen(features = 'cc cshlib rubyext')
+    obj.target = 'xmmsclient_ext'
+    obj.includes = '../../../.. ../../../include ../../../includepriv'
+    obj.source = """
+        rb_xmmsclient_main.c
+        rb_xmmsclient.c
+        rb_playlist.c
+        rb_collection.c
+        rb_result.c
+    """.split()
+    obj.uselib_local = 'xmmsclient'
+    obj.uselib = 'NOSTRICTPROTOTYPES'
+    obj.mac_bundle = True
+    obj.install_path = '${ARCHDIR_RUBY}'
+
+    bld.install_files('${LIBDIR_RUBY}', 'xmmsclient.rb')
+    bld.install_files('${LIBDIR_RUBY}/xmmsclient', 'sync.rb')
+    bld.install_files('${LIBDIR_RUBY}/xmmsclient', 'async.rb')
+
+    # glib
+    obj = bld.new_task_gen(features = 'cc cshlib rubyext')
+    obj.target = 'xmmsclient_glib'
+    obj.includes = '../../../.. ../../../include ../../../includepriv'
+    obj.source = ['rb_xmmsclient_glib.c']
+    obj.uselib_local = 'xmmsclient-glib xmmsclient'
+    obj.uselib = 'glib2 NOSTRICTPROTOTYPES'
+    obj.mac_bundle = True
+    obj.install_path = '${ARCHDIR_RUBY}'
+
+    # ecore
+    if 'src/clients/lib/xmmsclient-ecore' in bld.env['XMMS_OPTIONAL_BUILD']:
+        obj = bld.new_task_gen(features = 'cc cshlib rubyext')
+        obj.target = 'xmmsclient_ecore'
+        obj.includes = '../../../.. ../../../include ../../../includepriv'
+        obj.source = ['rb_xmmsclient_ecore.c']
+        obj.uselib_local = 'xmmsclient-ecore xmmsclient'
+        obj.uselib = 'ecore'
+        obj.mac_bundle = True
+        obj.install_path = '${ARCHDIR_RUBY}'
+
+def configure(conf):
+    conf.check_tool("ruby", tooldir=os.path.abspath('waftools'))
+
+    if not conf.check_ruby_version((1,8,0)):
+        conf.fatal("Wrong Ruby version")
+
+    if not conf.check_ruby_ext_devel():
+        conf.fatal("Cannot compile Ruby extensions")
+
+    conf.check_cc(function_name="rb_protect_inspect", header_name="ruby.h", uselib="RUBY")
+
+    if not os.path.commonprefix([conf.env['ARCHDIR_RUBY'], conf.env['PREFIX']]).startswith(conf.env['PREFIX']):
+        warning('default ruby archdir is not under PREFIX. specify path '
+                + 'manually using --with-ruby-archdir if you don\'t want the '
+                + 'ruby bindings to be installed to ' + conf.env['ARCHDIR_RUBY'])
+
+    if not os.path.commonprefix([conf.env['LIBDIR_RUBY'], conf.env['PREFIX']]).startswith(conf.env['PREFIX']):
+        warning('default ruby libdir is not under PREFIX. specify path '
+                + 'manually using --with-ruby-libdir if you don\'t want the '
+                + 'ruby bindings to be installed to ' + conf.env['LIBDIR_RUBY'])
+
+    return True
+
+def set_options(opt):
+    opt.tool_options('ruby', tdir=os.path.abspath('waftools'))

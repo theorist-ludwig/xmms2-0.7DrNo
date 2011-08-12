@@ -1,0 +1,10 @@
+from waftools.plugin import plugin
+
+def plugin_configure(conf):
+    if conf.check_cfg(package="mms", uselib_store="mms", args="--cflags --libs"):
+        return True
+    if conf.check_cfg(package="libmms", uselib_store="mms", args="--cflags --libs"):
+        return True
+    return False
+
+configure, build = plugin("mms", configure=plugin_configure, libs=["mms"])

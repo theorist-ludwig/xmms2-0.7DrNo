@@ -1,0 +1,16 @@
+from waftools.plugin import plugin
+
+def plugin_configure(conf):
+	# MinGW doesn't ship sys/select.h
+	if not conf.check_cc(header_name='sys/select.h'):
+		return False
+
+	if not conf.check_cfg(package="openssl", args="--cflags --libs", uselib_store="openssl"):
+		return False
+	return True
+
+configure, build = plugin("airplay", configure=plugin_configure,
+                          source=["airplay.c", "raop_client.c",
+                                  "net_utils.c", "rtspdefs.c",
+                                  "rtspconnection.c", "rtspmessage.c"],
+                          libs=["openssl"], output_prio=4)

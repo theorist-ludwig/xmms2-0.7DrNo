@@ -1,0 +1,18 @@
+from waftools.plugin import plugin
+
+def plugin_configure(conf):
+    if not conf.env["CXX"]:
+        return False
+
+    if conf.check_cfg(package="libgme", args="--cflags --libs", uselib_store="gme"):
+        return True
+
+    # pkg-config has been added to libgme after the 0.5.5 release
+    # so check for older versions manually
+    if conf.check_cxx(header_name="gme/gme.h", lib="gme", uselib_store='gme'):
+        return True
+
+    return False
+
+configure, build = plugin('gme', configure=plugin_configure,
+                          tool='cxx', source="gme_xform.cpp", libs=['gme'])

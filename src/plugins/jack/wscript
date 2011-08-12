@@ -1,0 +1,9 @@
+from waftools.plugin import plugin
+
+def plugin_configure(conf):
+    if conf.check_cfg(package="jack", uselib_store="jack", args="--cflags --libs"):
+        return True
+    return False
+
+configure, build = plugin("jack", configure=plugin_configure,
+                          libs=["jack"], output_prio=20)

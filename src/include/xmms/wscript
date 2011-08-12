@@ -1,0 +1,63 @@
+import os
+import Options
+import Utils
+from logging import fatal, warning
+import sys
+
+def build(bld):
+    pass
+
+def set_option(env):
+    pass
+
+def configure(conf):
+    """Set the values needed by xmms_defs.h.in in the environment."""
+
+    defs = {}
+
+    defs['PKGLIBDIR'] = os.path.join(conf.env['LIBDIR'], 'xmms2')
+    defs['BINDIR']    = conf.env['BINDIR']
+    defs['SHAREDDIR'] = os.path.join(conf.env.DATADIR, 'xmms2')
+    defs['SCRIPTDIR'] = os.path.join(defs['SHAREDDIR'], 'scripts', 'startup.d')
+
+    defs['XMMS_VERSION'] = conf.env['VERSION']
+
+    l = conf.env['XMMS_OUTPUT_PLUGINS']
+    l.sort()
+    prio,name = l[-1]
+    if not Options.options.without_xmms2d and prio == -1:
+        warning("No output plugin found, this is bad")
+
+    defs['XMMS_OUTPUT_DEFAULT'] = name
+
+    if Options.options.default_output_plugin:
+        preferred = Options.options.default_output_plugin
+        if preferred in (name for _,name in l):
+            defs['XMMS_OUTPUT_DEFAULT'] = preferred
+        else:
+            fatal('The "%s" output plugin could not be found.' % (preferred))
+            raise SystemExit
+
+    if Options.platform == 'darwin':
+        defs["USERCONFDIR"] = 'Library/xmms2'
+        defs["USERCACHEDIR"] = 'Library/xmms2/logs'
+    else:
+        defs['USERCONFDIR'] = '.config/xmms2'
+        defs['USERCACHEDIR'] = '.cache/xmms2'
+    defs['SYSCONFDIR'] = '/etc/xmms2'
+
+    conf.env['XMMS_DEFS'] = defs
+    conf.env['PLUGINDIR'] = defs['PKGLIBDIR']
+
+    # The plugin path in Windows should be relative, not absolute
+    if Options.platform == 'win32':
+        defs['PKGLIBDIR'] = 'Plugins/'
+
+    for i in defs:
+        conf.define(i, defs[i])
+
+    Utils.pprint('Normal', "\nDefault output plugin: ", sep='')
+    Utils.pprint('BLUE', conf.env["XMMS_DEFS"]['XMMS_OUTPUT_DEFAULT'])
+
+    return True
+
