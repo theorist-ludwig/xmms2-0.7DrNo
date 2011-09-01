@@ -310,6 +310,7 @@ gboolean
 command_arg_pattern_get (command_context_t *ctx, gint at, xmmsc_coll_t **v,
                          gboolean warn)
 {
+
 	gchar *pattern = NULL;
 	gboolean success = TRUE;
 
@@ -325,6 +326,7 @@ command_arg_pattern_get (command_context_t *ctx, gint at, xmmsc_coll_t **v,
 		success = FALSE;
 	}
 
+	printf("String found by looking up struct: %s", pattern);
 	g_free (pattern);
 
 	return success;

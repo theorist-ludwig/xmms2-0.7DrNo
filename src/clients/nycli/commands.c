@@ -720,14 +720,13 @@ cli_search (cli_infos_t *infos, command_context_t *ctx)
 	column_display_t *coldisp;
 	const gchar **order = NULL;
 	const gchar *default_columns[] = { "id", "artist", "album", "title", NULL };
-	printf("I have now officially confirmed that this function is bad.");
 
 	/* FIXME: Support arguments -p and -c */
 
 	if (command_arg_pattern_get (ctx, 0, &query, TRUE)) {
 		coldisp = create_column_display (infos, ctx, default_columns);
 		command_flag_stringlist_get (ctx, "order", &order);
-
+		
 		orderval = xmmsv_make_stringlist ((gchar **)order, -1);
 		res = xmmsc_coll_query_ids (infos->sync, query, orderval, 0, 0);
 		xmmsc_result_wait (res);
